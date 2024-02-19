@@ -81,7 +81,7 @@ const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
         <h2 className=" text-2xl text-white font-semibold">TODAY'S FORECAST</h2>
         <div className="flex gap-6 items-center justify-center flex-wrap mt-4">
         {hourly.map((item,index)=>{
-          // {console.log(item)}
+          
           return <HourlyForecast  tempUnit={tempUnit} items={item} key={index}/>
         })}
         

@@ -45,18 +45,18 @@ const DailyComponent = ({item,tempUnit}) => {
       <div className='flex items-center justify-between'>
         <div className='flex-col'>
           
-          <h3 className='text-base flex text-slate-600'>Morning:&nbsp; <div className='text-slate-700'>{Math.round(item.morn)} { tempUnit}</div> </h3>
-          <h3 className='text-base flex text-slate-600'>Evening:&nbsp; <div className='text-slate-700'>{Math.round(item.eve)} { tempUnit}</div> </h3>
-          <h3 className='text-base flex text-slate-600'>Night:&nbsp; <div className='text-slate-700'>{Math.round(item.night)} { tempUnit}</div> </h3>
+          <h3 className='md:text-base text-sm flex gap-1 text-slate-600 '>Mor:<div className='text-slate-700'>{Math.round(item.morn)} { tempUnit}</div> </h3>
+          <h3 className='md:text-base text-sm flex gap-1 text-slate-600 '>Even: <div className='text-slate-700'>{Math.round(item.eve)} { tempUnit}</div> </h3>
+          <h3 className='md:text-base text-sm flex gap-1 text-slate-600 '>Ngt:<div className='text-slate-700'>{Math.round(item.night)} { tempUnit}</div> </h3>
           </div>
           <div className='flex-col'>
-          <div className='text-base flex gap-1 text-slate-600 '>💧Humidity: <div className='text-slate-700'>{item.humidity}%</div></div>
-          <div className='text-base flex gap-1 text-slate-600 '> <FaWind/>  Wind: <div className='text-slate-700'>{item.wind_speed}%</div></div>
-          <div className='text-base flex gap-1 text-slate-600 '> <FaCloud/>  Cloud: <div className='text-slate-700'>{item.clouds}%</div></div>
+          <div className='md:text-base text-sm flex gap-1 text-slate-600 '>💧Hum: <div className='text-slate-700'>{item.humidity}%</div></div>
+          <div className='md:text-base text-sm flex gap-1 text-slate-600  '> <FaWind/>  Wind: <div className='text-slate-700'>{item.wind_speed}%</div></div>
+          <div className='md:text-base text-sm flex gap-1 text-slate-600  '> <FaCloud/>  Cloud: <div className='text-slate-700'>{item.clouds}%</div></div>
           </div>
           <div className='flex-col'>
-          <div className='text-base flex gap-1 text-slate-600 '> <FiSunrise/> Sunrise: <div className='text-slate-700'>{item.sunrise}</div></div>
-          <div className='text-base flex gap-1 text-slate-600 '> <FiSunset/> Sunset: <div className='text-slate-700'>{item.sunset}</div></div>          </div>
+          <div className='md:text-base text-sm flex gap-1 text-slate-600 '> <FiSunrise/> Rise: <div className='text-slate-700'>{item.sunrise}</div></div>
+          <div className='md:text-base text-sm flex gap-1 text-slate-600 '> <FiSunset/> Set: <div className='text-slate-700'>{item.sunset}</div></div>          </div>
           
       </div>
       </div>
