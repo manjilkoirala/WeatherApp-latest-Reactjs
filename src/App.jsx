@@ -25,7 +25,7 @@ const App = () => {
 
   const formatTempBackground=()=>{
     if(!weather) return 'bg-slate-700'
-    const threshold= units==="metric"? 20:60;
+    const threshold= units==="metric"? 20:68;
     if(weather.temp>=threshold) return 'bg-gradient-to-r from-orange-700 to-red-500'
     else return 'bg-gradient-to-r from-cyan-700 to-gray-400'
   }
