@@ -4,7 +4,6 @@ import { FaSearch } from 'react-icons/fa'
 import { FaLocationDot } from 'react-icons/fa6'
 const SearchBox = ({setQuery,units, setUnits}) => {
   const [city, setCity] = useState('')
-  // const [selected, setSelected] = useState('imperical') //
 
   //Handle the search
   const handleSearch = (e) => {
@@ -23,13 +22,13 @@ const SearchBox = ({setQuery,units, setUnits}) => {
     const handleUnits = (e) => {
       if(units !== e.target.name){
       setUnits(e.target.name)
-      setSelected(e.target.name)
+      
     }}
 
 
   return (
-    <div className='flex gap-4 items-center w-full justify-center'>
-      <div className="flex pl-4 overflow-hidden py-4 items-center bg-white sm:w-[65%] lg:w-[70%] w-[60%] gap-2 rounded-xl h-16">
+    <div className='flex gap-4 items-center w-full justify-center px-3'>
+      <div className="flex pl-4 overflow-hidden py-4 items-center bg-white sm:w-[65%] lg:w-[70%] w-[55%] gap-2 rounded-xl h-16">
       <input
           type="text"
           placeholder="Enter the location"
