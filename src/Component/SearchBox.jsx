@@ -53,6 +53,7 @@ const SearchBox = ({setQuery,units, setUnits}) => {
     </div>
     
     </div>
+    
   )
 }
 

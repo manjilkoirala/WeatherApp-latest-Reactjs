@@ -5,9 +5,6 @@ import { formatToLocalTime, iconUrlFromCode } from "../Services/WeatherService";
 
 const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
   name,country,dt,timezone,temp,detail,feels_like,speed,all,humidity,icon}}) => {
-   
-
-    
   return (
     <div className="flex flex-col items-center">
       <div className={`flex flex-col  m:w-full w-[full] py-4 rounded-xl ${formatTempBackground()}`}>
