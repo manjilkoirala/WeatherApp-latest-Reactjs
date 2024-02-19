@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaCloud, FaTemperatureLow, FaWater, FaWind } from "react-icons/fa";
 import HourlyForecast from "./HourlyForecast";
 import { formatToLocalTime, iconUrlFromCode } from "../Services/WeatherService";
 
 const CurrentWeather = ({tempUnit,hourly,weather:{
   name,country,dt,timezone,temp,detail,feels_like,speed,all,humidity,icon}}) => {
+   
 
     
   return (

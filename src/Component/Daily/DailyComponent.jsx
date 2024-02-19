@@ -3,6 +3,7 @@ import { FaCloud, FaSun, FaTemperatureHigh, FaTemperatureLow, FaWind } from 'rea
 import { iconUrlFromCode } from '../Services/WeatherService'
 
 const DailyComponent = ({item,tempUnit}) => {
+
  
   return (
     <div className='flex justify-between items-center lg:gap-24 sm:gap-36 w-full  gap-12 p-2 bg-slate-300 rounded-lg'>

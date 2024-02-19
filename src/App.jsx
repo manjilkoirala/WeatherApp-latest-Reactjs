@@ -14,7 +14,9 @@ const App = () => {
   useEffect(() => {
     const fetchWeatherData = async () => {
       await getFormatedWeatherData({ ...query, units }).then((data) => {
+      
         setWeather(data);
+        
       });
     };
 
@@ -35,7 +37,7 @@ const App = () => {
         ) : (
           <div className="flex items-center gap-8 mt-2 lg:flex-row flex-col">
             <CurrentWeather weather={weather} tempUnit={tempUnit} units={units} hourly={weather.hourly} />
-            <DailyWeather items={weather.daily} tempUnit={tempUnit}/>
+            <DailyWeather items={weather.daily} tempUnit={tempUnit} weather={weather}/>
           </div>
         )}
       </div>
