@@ -97,7 +97,7 @@ const formatToLocalTime = (
   format = "ccc, LL-dd' | 'HH:MM"
 ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
-const iconUrlFromCode =(code)=>`http://openweathermap.org/img/wn/${code}@2x.png`
+const iconUrlFromCode =(code)=>`https://openweathermap.org/img/wn/${code}@2x.png`
 
 export default getFormatedWeatherData;
 export {formatToLocalTime,iconUrlFromCode}
