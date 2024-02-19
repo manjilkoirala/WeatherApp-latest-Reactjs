@@ -62,16 +62,9 @@ const formatForecastWeather = (data) => {
     };
   });
 
-  forCurrent=daily.slice(0,1).map((d) => {
-    return{
-      day:d.temp.day,
-      morn:d.temp.morn,
-      eve:d.temp.eve,
-      night:d.temp.night,
-    }
-  })
+ 
 
-  hourly = hourly.slice(2, 8).map((d) => {
+  hourly = hourly.slice(0, 6).map((d) => {
     return {
       title: formatToLocalTime(d.dt, timezone, "hh:mm a"),
       temp: d.temp,
@@ -80,6 +73,7 @@ const formatForecastWeather = (data) => {
       humidity: d.humidity,
       wind_speed: d.wind_speed,
       clouds: d.clouds,
+      feels_like: d.feels_like,
     };
   });
 

@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCloud, FaTemperatureLow, FaWater, FaWind } from "react-icons/fa";
 import HourlyForecast from "./HourlyForecast";
 import { formatToLocalTime, iconUrlFromCode } from "../Services/WeatherService";
 
 const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
   name,country,dt,timezone,temp,detail,feels_like,speed,all,humidity,icon}}) => {
+    
+    
+    
   return (
     <div className="flex flex-col items-center mt-8">
       <div className={`flex flex-col  m:w-full w-[full] py-4 rounded-xl ${formatTempBackground()}`}>
@@ -78,8 +81,8 @@ const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
         <h2 className=" text-2xl text-white font-semibold">TODAY'S FORECAST</h2>
         <div className="flex gap-6 items-center justify-center flex-wrap mt-4">
         {hourly.map((item,index)=>{
-          
-          return <HourlyForecast tempUnit={tempUnit} items={item} key={index}/>
+          // {console.log(item)}
+          return <HourlyForecast  tempUnit={tempUnit} items={item} key={index}/>
         })}
         
         

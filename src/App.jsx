@@ -21,7 +21,10 @@ const App = () => {
     };
 
     fetchWeatherData();
+    
   }, [query, units]);
+
+  
 
   const formatTempBackground=()=>{
     if(!weather) return 'bg-slate-700'
@@ -42,7 +45,7 @@ const App = () => {
             <span>Loading.... or</span> &nbsp; Incorrect City Name
           </div>
         ) : (
-          <div className="flex items-start gap-8 mt-2 lg:flex-row flex-col sm:px-4">
+          <div className="flex items-center lg:items-start gap-8 mt-2 lg:flex-row flex-col sm:px-4">
             <CurrentWeather weather={weather} tempUnit={tempUnit} units={units} hourly={weather.hourly} formatTempBackground={formatTempBackground}/>
             <DailyWeather items={weather.daily} tempUnit={tempUnit} weather={weather}/>
           </div>

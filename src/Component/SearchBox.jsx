@@ -8,7 +8,10 @@ const SearchBox = ({setQuery,units, setUnits}) => {
   //Handle the search
   const handleSearch = (e) => {
     e.preventDefault()
-    setQuery({q:city})}
+    setQuery({q:city})
+    setCity('')
+  
+  }
 
     //Handle the Current Location
     const handleCurrentLocation = () => {
