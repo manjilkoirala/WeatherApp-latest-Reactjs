@@ -3,14 +3,14 @@ import { FaCloud, FaTemperatureLow, FaWater, FaWind } from "react-icons/fa";
 import HourlyForecast from "./HourlyForecast";
 import { formatToLocalTime, iconUrlFromCode } from "../Services/WeatherService";
 
-const CurrentWeather = ({tempUnit,hourly,weather:{
+const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
   name,country,dt,timezone,temp,detail,feels_like,speed,all,humidity,icon}}) => {
    
 
     
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-col bg-slate-700 m:w-full w-[full] py-4 rounded-xl">
+      <div className={`flex flex-col  m:w-full w-[full] py-4 rounded-xl ${formatTempBackground()}`}>
       <div className="flex flex-col items-center px-4">
         <h2 className=" sm:text-3xl text-2xl text-white font-semibold">CURRENT WEATHER</h2>
         <div className="flex sm:gap-20 gap-8 mt-4 items-center">

@@ -23,6 +23,13 @@ const App = () => {
     fetchWeatherData();
   }, [query, units]);
 
+  const formatTempBackground=()=>{
+    if(!weather) return 'bg-slate-700'
+    const threshold= units==="metric"? 20:60;
+    if(weather.temp>=threshold) return 'bg-gradient-to-r from-orange-700 to-red-500'
+    else return 'bg-gradient-to-r from-cyan-700 to-gray-400'
+  }
+
   return (
     <div className="w-90%">
       <div className="flex flex-col items-center gap-4">
@@ -36,7 +43,7 @@ const App = () => {
           </div>
         ) : (
           <div className="flex items-center gap-8 mt-2 lg:flex-row flex-col sm:px-4">
-            <CurrentWeather weather={weather} tempUnit={tempUnit} units={units} hourly={weather.hourly} />
+            <CurrentWeather weather={weather} tempUnit={tempUnit} units={units} hourly={weather.hourly} formatTempBackground={formatTempBackground}/>
             <DailyWeather items={weather.daily} tempUnit={tempUnit} weather={weather}/>
           </div>
         )}
