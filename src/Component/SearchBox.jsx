@@ -48,10 +48,10 @@ const SearchBox = ({setQuery,units, setUnits}) => {
           <FaSearch size={26}/>
         </button>
     </div>
-    <FaLocationDot color='white' size={30} cursor='pointer' onClick={handleCurrentLocation} />
+    <FaLocationDot color='white' size={30} cursor='pointer' onClick={handleCurrentLocation} className='transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out' />
     <div className='flex gap-2 text-3xl font-medium text-slate-200 cursor-pointer items-center'>
-    <button name='metric' onClick={handleUnits} className= {units==="metric"?'bg-slate-600 rounded-md p-2 text-white': null}>°C</button> |
-    <button  name='Imperial' onClick={handleUnits} className={units==="Imperial"?'bg-slate-600 rounded-md p-2 text-white': null} >°F</button>
+    <button name='metric' onClick={handleUnits} className= {units==="metric"?'bg-slate-600 rounded-md p-2 text-white': "transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out"}>°C</button> |
+    <button  name='Imperial' onClick={handleUnits} className={units==="Imperial"?'bg-slate-600 rounded-md p-2 text-white': "transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out"} >°F</button>
     
     </div>
     

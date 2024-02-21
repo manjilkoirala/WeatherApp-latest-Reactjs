@@ -35,12 +35,12 @@ const TopButtons = ({setQuery}) => {
         
     
   return (
-    <div className='items-center justify-center gap-2 mt-6 flex font-medium lg:text-xl  px-2 flex-wrap'>
+    <div className='items-center justify-center gap-2 mt-6 flex font-medium lg:text-xl  px-2 flex-wrap '>
 
         {cities.map(city=>{
             
             return(
-                <div key={city.id} className='text-white px-4 py-2'>
+                <div key={city.id} className='text-white px-4 py-2 transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out'>
                    
                 <button onClick={()=>setQuery({q:city.city})}  className=''>{city.city}</button>
             </div>

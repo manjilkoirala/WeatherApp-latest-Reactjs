@@ -12,8 +12,8 @@ const DailyComponent = ({item,tempUnit}) => {
   }
  
   return (
-    <details className='bg-slate-300 rounded-lg' >
-      <summary onClick={change} className='flex items-center hover:cursor-pointer'>
+    <details className='bg-slate-300 rounded-lg ' >
+      <summary onClick={change} className='flex items-center hover:cursor-pointer '>
       <div className={`flex justify-between items-center sm:w-[500px] md:w-[700px] lg:w-[400px] w-[350px] xl:w-[600px] md:px-4 px-2 py-6 `}>
        
             <h3 className={` ${className} md:text-xl text-base`}>{item.title}</h3>
