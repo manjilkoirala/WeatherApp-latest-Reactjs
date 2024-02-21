@@ -2,9 +2,21 @@ import React, { useEffect, useState } from "react";
 import { FaCloud, FaTemperatureLow, FaWater, FaWind } from "react-icons/fa";
 import HourlyForecast from "./HourlyForecast";
 import { formatToLocalTime, iconUrlFromCode } from "../Services/WeatherService";
+import { useContext } from "react";
+import { WeatherContext } from "../../Context/WeatherContext";
 
-const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
-  name,country,dt,timezone,temp,detail,feels_like,speed,all,humidity,icon}}) => {
+const CurrentWeather = ({formatTempBackground,hourly}) => {
+
+    const allData=useContext(WeatherContext);
+    const weathers=allData.weather;
+
+    
+
+    const onClick=(item)=>{
+      
+      allData.setWeather({...weathers, ...{temp:item.temp,icon:item.icon,feels_like:item.feels_like,humidity:item.humidity,all:item.clouds,speed:item.wind_speed,dt:item.title,timezone:item.timezone }});
+
+    }
     
     
     
@@ -15,14 +27,14 @@ const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
         <h2 className=" sm:text-3xl text-2xl text-white font-semibold">CURRENT WEATHER</h2>
         <div className="flex sm:gap-20 gap-8 mt-4 items-center">
           <div className="flex flex-col items-center">
-            <h3 className=" text-lg font-medium text-slate-100">{name}, {country}</h3>
-            <p className=" text-slate-300">{formatToLocalTime(dt,timezone)}</p>
+            <h3 className=" text-lg font-medium text-slate-100">{weathers.name}, {weathers.country}</h3>
+            <p className=" text-slate-300">{formatToLocalTime(weathers.dt,weathers.timezone)}</p>
           </div>
           <div className="flex flex-col items-center">
-            <h3 className=" text-lg font-medium text-slate-100">{temp}{tempUnit} </h3>
-            <p className=" text-slate-300">{detail}</p>
+            <h3 className=" text-lg font-medium text-slate-100">{weathers.temp}{allData.tempUnit} </h3>
+            <p className=" text-slate-300">{weathers.detail}</p>
           </div>
-          <img src={iconUrlFromCode(icon)} alt="icons" className="lg:w-[100px] sm:w-[80px] w-[60px]" />
+          <img src={iconUrlFromCode(weathers.icon)} alt="icons" className="lg:w-[100px] sm:w-[80px] w-[60px]" />
         </div>
       </div>
       <div className="flex flex-col items-center sm:px-8 px-2 mt-6 ">
@@ -39,7 +51,7 @@ const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
                 Feels
               </h3>
             </div>
-            <p className=" text-slate-100">{feels_like} {tempUnit}</p>
+            <p className=" text-slate-100">{weathers.feels_like} {allData.tempUnit}</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2">
@@ -49,7 +61,7 @@ const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
                 Wind
               </h3>
             </div>
-            <p className=" text-slate-100">{speed}m/s</p>
+            <p className=" text-slate-100">{weathers.speed}m/s</p>
           </div>
          </div>
           <div className="flex gap-16">
@@ -61,7 +73,7 @@ const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
                 Cloud
               </h3>
             </div>
-            <p className=" text-slate-100">{all}%</p>
+            <p className=" text-slate-100">{weathers.all}%</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2">
@@ -71,7 +83,7 @@ const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
                 Humidity
               </h3>
             </div>
-            <p className=" text-slate-100">{humidity}%</p>
+            <p className=" text-slate-100">{weathers.humidity}%</p>
           </div>
           </div>
         </div>
@@ -80,9 +92,9 @@ const CurrentWeather = ({formatTempBackground,tempUnit,hourly,weather:{
       <div className="flex flex-col items-center md:px-8 px-2 py-6">
         <h2 className=" text-2xl text-white font-semibold">TODAY'S FORECAST</h2>
         <div className="flex gap-6 items-center justify-center flex-wrap mt-4">
-        {hourly.map((item,index)=>{
+        {weathers.hourly.map((item,index)=>{
           
-          return <HourlyForecast  tempUnit={tempUnit} items={item} key={index}/>
+          return <HourlyForecast  tempUnit={allData.tempUnit} items={item} key={index} onClick={()=>onClick(item)}/>
         })}
         
         
