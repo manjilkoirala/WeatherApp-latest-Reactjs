@@ -24,7 +24,7 @@ const CurrentWeather = ({formatTempBackground,hourly}) => {
     <div className="flex flex-col items-center mt-8">
       <div className={`flex flex-col  m:w-full w-[full] py-4 rounded-xl ${formatTempBackground()}`}>
       <div className="flex flex-col items-center px-4">
-        <h2 className=" sm:text-3xl text-2xl text-white font-semibold">CURRENT WEATHER</h2>
+        <h2 className=" sm:text-3xl text-2xl text-white font-semibold">{formatToLocalTime(weathers.dt,weathers.timezone, "' ' cccc ")}'s WEATHER</h2>
         <div className="flex sm:gap-20 gap-8 mt-4 items-center">
           <div className="flex flex-col items-center">
             <h3 className=" text-lg font-medium text-slate-100">{weathers.name}, {weathers.country}</h3>
